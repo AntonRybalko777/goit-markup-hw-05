@@ -9,6 +9,7 @@
   --light: #f4f4fd;
   --modal-overlay: #2e2f42;
   --white-background: #ffffff;
+  --dairy: #fcfcfc;
   --hover-duration: 250ms;
   --hover-timing: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -66,7 +67,7 @@ body {
   content: "";
 
   position: absolute;
-  bottom: 0;
+  bottom: -1px;
   left: 0;
 
   display: block;
@@ -254,14 +255,14 @@ body {
   border: 1px solid var(--subtle-text);
   border-radius: 4px;
 
-  transition-property: border, color;
+  transition-property: border-color, color;
   transition-duration: var(--hover-duration);
   transition-timing-function: var(--hover-timing);
 }
 
 .customer-link:hover,
 .customer-link:focus {
-  border: 1px solid var(--pressed-state);
+  border-color: var(--pressed-state);
   color: var(--pressed-state);
 }
 
@@ -280,7 +281,8 @@ body {
   background-color: rgba(46, 47, 66, 0.4);
 
   transition-property: opacity, visibility;
-  transition-duration: 400ms;
+  transition-duration: var(--hover-duration);
+  transition-timing-function: var(--hover-timing);
 }
 
 .backdrop.is-hidden {
@@ -298,14 +300,17 @@ body {
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(1);
 
   transition-property: opacity, transform;
-  transition-duration: 350ms, 400ms;
+  transition-duration: var(--hover-duration);
+  transition-timing-function: var(--hover-timing);
 
   width: 408px;
-  height: 584px;
-  background-color: var(--white-background);
+  min-height: 576px;
+  background-color: var(--dairy);
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
 }
 
 .modal-close-btn {
@@ -326,7 +331,7 @@ body {
   color: var(--modal-overlay);
   cursor: pointer;
 
-  transition-property: color, background-color;
+  transition-property: color, background-color, border;
   transition-duration: var(--hover-duration);
   transition-timing-function: var(--hover-timing);
 }
@@ -335,10 +340,14 @@ body {
 .modal-close-btn:focus {
   color: var(--white-background);
   background-color: var(--pressed-state);
+  border: none;
 }
 
 .modal-close-icon {
   fill: currentColor;
+  transition-property: fill;
+  transition-duration: var(--hover-duration);
+  transition-timing-function: var(--hover-timing);
 }
 
 /* FOOTER */
@@ -413,7 +422,7 @@ body {
   letter-spacing: 0.04em;
   padding: 12px 24px;
 
-  transition-property: color, background-color, border, box-shadow;
+  transition-property: color, background-color, border-color, box-shadow;
   transition-duration: var(--hover-duration);
   transition-timing-function: var(--hover-timing);
 }
@@ -422,7 +431,7 @@ body {
 .filter:focus {
   color: var(--white-background);
   background-color: var(--pressed-state);
-  border: 1px solid transparent;
+  border-color: transparent;
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
 }
 
@@ -475,8 +484,9 @@ body {
   color: var(--text);
 }
 
-.portfolio-card:hover .overlay {
-  transform: translateY(0);
+.portfolio-link:hover .overlay,
+.portfolio-link:hover .overlay {
+  transform: translateY(0%);
 }
 
 .overlay {
