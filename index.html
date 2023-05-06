@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Main Page</title>
+    <title>Studio</title>
     <link href="https://cdn.jsdelivr.net/npm/modern-normalize@1.1.0/modern-normalize.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="./css/styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -20,7 +20,7 @@
           <!-- navigation -->
           <ul class="list menu">
             <li>
-              <a href="./index.html" class="nav link">Studio</a>
+              <a href="./index.html" class="nav link active">Studio</a>
             </li>
             <li>
               <a href="./portfolio.html" class="nav link">Portfolio</a>
@@ -46,7 +46,7 @@
         <div class="container">
           <!-- section 1 -->
           <h1 class="hero-header">Effective Solutions for Your Business</h1>
-          <button type="button" class="hero-button">Order Service</button>
+          <button type="button" class="hero-button" data-modal-open>Order Service</button>
         </div>
       </section>
       <section class="features-section">
@@ -358,5 +358,16 @@
         </div>
       </div>
     </footer>
+    <!-- MODAL -->
+    <div class="backdrop is-hidden" data-modal>
+      <div class="modal">
+        <button class="modal-close-btn" data-modal-close>
+          <svg class="modal-close-icon" width="8" height="8">
+            <use href="./images/icons.svg#close-icon"></use>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <script src="./js/modal.js"></script>
   </body>
 </html>
